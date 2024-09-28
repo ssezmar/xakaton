@@ -3,9 +3,6 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-import { ThemeProvider } from "@/components/theme-provider"
-import { ModeToggle } from "@/components/mode-toggle"
-
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -17,20 +14,6 @@ import {
 } from "@/components/ui/navigation-menu"
 
 import {
-    File,
-    Home,
-    LineChart,
-    ListFilter,
-    MoreHorizontal,
-    Package,
-    Package2,
-    PanelLeft,
-    PlusCircle,
-    Search,
-    Settings,
-    ShoppingCart,
-    Users2,
-    Diamond,
     ChartArea,
     Calculator,
     ClipboardMinus,
@@ -51,13 +34,13 @@ export function NavigationCenter() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem href="/docs" title="Все проекты">
+                <ListItem href="/projects/list" title="Все проекты">
                   Список всех проектов
                 </ListItem>
-                <ListItem href="/docs/installation" title="Панель аналитики">
+                <ListItem href="/projects/information" title="Панель аналитики">
                   Общая информация по текущим продуктам
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Агенты">
+                <ListItem href="/projects/agents" title="Агенты">
                   Информация по всем агентам
                 </ListItem>
               </ul>
@@ -72,10 +55,10 @@ export function NavigationCenter() {
               </NavigationMenuTrigger>
             <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[400px] md:grid-cols-2 lg:w-[500px] ">
-                <ListItem href="/docs" title="Все проекты">
+                <ListItem href="/projects/list" title="Все проекты">
                   Список всех проектов
                 </ListItem>
-                <ListItem href="/docs/installation" title="Создать новый проект">
+                <ListItem href="/projects/create" title="Создать новый проект">
                   Страница создания новых гипотез
                 </ListItem>
               </ul>
@@ -90,21 +73,21 @@ export function NavigationCenter() {
             </NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                <ListItem href="/docs" title="Все договоры">
+                <ListItem href="/docs/list" title="Все договоры">
                   Список всех договоров
                 </ListItem>
-                <ListItem href="/docs/installation" title="Новый договор">
+                <ListItem href="/docs/create" title="Новый договор">
                   Создать новый договор
                 </ListItem>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-            <Calculator className="h-5 w-5" />
-                <p className="ml-[10px]">
-                  Калькулятор 
-                </p>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()} href="/calculator">
+              <Calculator className="h-5 w-5" />
+              <p className="ml-[10px]">
+                Калькулятор 
+              </p>
             </NavigationMenuLink>
 
           </NavigationMenuItem>

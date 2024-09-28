@@ -4,6 +4,8 @@ import { GeneralGraph2} from "@/components/general-graph2"
 import { Calendar } from "@/components/ui/calendar"
 import { GeneralCard } from "@/components/general-card"
 import { GeneralCarousel } from "@/components/general-carusel"
+import { BottomCarousel } from "@/components/general-carusel-bottom"
+
 
 import logo from '../assets/согласие.jpg'
 
@@ -31,9 +33,10 @@ export function Main() {
         <GeneralGraph2/>
         <GeneralCard/>
         <GeneralCarousel/>
-
       </div>
-      
+      <div className="flex justify-center">
+        <BottomCarousel/>
+      </div>
     </>
     
   )

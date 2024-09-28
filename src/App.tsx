@@ -1,12 +1,16 @@
-import { Navigation } from "@/components/navigation"
-
-import { Main } from "@/components/main"
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
  
+import { MainPage } from "@/pages/main-page"
+import { ProjectsListPage } from "@/pages/projects-list"
 function App() {
   return (
     <>
-      <Navigation/>
-      <Main/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MainPage />}></Route>
+          <Route path="/projects/list" element={<ProjectsListPage />}></Route>
+        </Routes>
+      </BrowserRouter>
     </>
     
   )
