@@ -40,7 +40,7 @@ export function NavigationCenter() {
                 <ListItem href="/projects/information" title="Панель аналитики">
                   Общая информация по текущим продуктам
                 </ListItem>
-                <ListItem href="/projects/agents" title="Агенты">
+                <ListItem href="/agents/list" title="Агенты">
                   Информация по всем агентам
                 </ListItem>
               </ul>
@@ -78,6 +78,9 @@ export function NavigationCenter() {
                 </ListItem>
                 <ListItem href="/docs/create" title="Новый договор">
                   Создать новый договор
+                </ListItem>
+                <ListItem href="/agents/list" title="Агенты">
+                  Информация по всем агентам
                 </ListItem>
               </ul>
             </NavigationMenuContent>

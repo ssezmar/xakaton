@@ -45,106 +45,138 @@ import {
 const data: Payment[] = [
   {
     id: "m5gr84i9",
-    amount: 5000,
+    profit: 5000,
     status: "Завершен",
-    email: "Молодежная ипотека",
+    name: "Молодежная ипотека",
+    LOBid: "Ипотека",
+    countRisks: 10,
   },
   {
     id: "3u1reuv4",
-    amount: 242,
+    profit: 242,
     status: "Завершен",
-    email: "ОСАГО для программистов",
+    name: "ОСАГО для программистов",
+    LOBid: "ОСАГО",
+    countRisks: 1,
   },
   {
     id: "derv1ws0",
-    amount: 837,
+    profit: 837,
     status: "В процессе",
-    email: "Путешествия для фрилансеров",
+    name: "Путешествия для фрилансеров",
+    LOBid: "Страхование путешественников",
+    countRisks: 2,
   },
   {
     id: "5kma53ae",
-    amount: 874,
+    profit: 874,
     status: "Завершен",
-    email: "Страхование домашних животных",
+    name: "Страхование домашних животных",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 5,
   },
   {
     id: "bhqecj4p",
-    amount: 721,
+    profit: 721,
     status: "Провален",
-    email: "Спортивные страховки",
+    name: "Спортивные страховки",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 3,
   },
   {
     id: "m5gr84i9",
-    amount: 5000,
+    profit: 5000,
     status: "Завершен",
-    email: "Молодежная ипотека",
+    name: "Молодежная ипотека",
+    LOBid: "Ипотека",
+    countRisks: 10,
   },
   {
     id: "3u1reuv4",
-    amount: 242,
+    profit: 242,
     status: "Завершен",
-    email: "ОСАГО для программистов",
+    name: "ОСАГО для программистов",
+    LOBid: "ОСАГО",
+    countRisks: 1,
   },
   {
     id: "derv1ws0",
-    amount: 837,
+    profit: 837,
     status: "В процессе",
-    email: "Путешествия для фрилансеров",
+    name: "Путешествия для фрилансеров",
+    LOBid: "Страхование путешественников",
+    countRisks: 2,
   },
   {
     id: "5kma53ae",
-    amount: 874,
+    profit: 874,
     status: "Завершен",
-    email: "Страхование домашних животных",
+    name: "Страхование домашних животных",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 5,
   },
   {
     id: "bhqecj4p",
-    amount: 721,
+    profit: 721,
     status: "Провален",
-    email: "Спортивные страховки",
+    name: "Спортивные страховки",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 3,
   },
   {
     id: "m5gr84i9",
-    amount: 5000,
+    profit: 5000,
     status: "Завершен",
-    email: "Молодежная ипотека",
+    name: "Молодежная ипотека",
+    LOBid: "Ипотека",
+    countRisks: 10,
   },
   {
     id: "3u1reuv4",
-    amount: 242,
+    profit: 242,
     status: "Завершен",
-    email: "ОСАГО для программистов",
+    name: "ОСАГО для программистов",
+    LOBid: "ОСАГО",
+    countRisks: 1,
   },
   {
     id: "derv1ws0",
-    amount: 837,
+    profit: 837,
     status: "В процессе",
-    email: "Путешествия для фрилансеров",
+    name: "Путешествия для фрилансеров",
+    LOBid: "Страхование путешественников",
+    countRisks: 2,
   },
   {
     id: "5kma53ae",
-    amount: 874,
+    profit: 874,
     status: "Завершен",
-    email: "Страхование домашних животных",
+    name: "Страхование домашних животных",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 5,
   },
   {
     id: "bhqecj4p",
-    amount: 721,
+    profit: 721,
     status: "Провален",
-    email: "Спортивные страховки",
+    name: "Спортивные страховки",
+    LOBid: "Страхование от несчастных случаев",
+    countRisks: 3,
   },
 ]
 
 export type Payment = {
   id: string
-  amount: number
+  profit: number
   status: "pending" | "processing" | "success" | "failed"
-  email: string
+  name: string
+  countRisks: number
+  LOBid: string
 }
 
 export const columns: ColumnDef<Payment>[] = [
   {
-    accessorKey: "email",
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <Button
@@ -156,7 +188,7 @@ export const columns: ColumnDef<Payment>[] = [
         </Button>
       )
     },
-    cell: ({ row }) => <div  className="capitalize">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div  className="capitalize">{row.getValue("name")}</div>,
   },
   {
     accessorKey: "status",
@@ -176,7 +208,42 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "amount",
+    accessorKey: "LOBid",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+            Линия бизнеса
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("LOBid")}</div>
+    ),
+  },
+  {
+    accessorKey: "countRisks",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          className="text-center"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+            Количество рисков
+          <CaretSortIcon className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+    cell: ({ row }) => (
+      <div className="capitalize text-center">{row.getValue("countRisks")}</div>
+    ),
+  },
+  {
+    accessorKey: "profit",
      header: ({ column }) => {
       return (
         <div className="text-right">
@@ -192,7 +259,7 @@ export const columns: ColumnDef<Payment>[] = [
       )
     },
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"))
+      const amount = parseFloat(row.getValue("profit"))
 
       // Format the amount as a dollar amount
       const formatted = new Intl.NumberFormat("ru-RU", {
@@ -269,9 +336,9 @@ export function ProjectsTable() {
       <div className="flex items-center py-4">
         <Input
           placeholder="Поиск по названию..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
@@ -345,7 +412,7 @@ export function ProjectsTable() {
                   colSpan={columns.length}
                   className="h-24 text-center"
                 >
-                  No results.
+                  Нет результатов.
                 </TableCell>
               </TableRow>
             )}

@@ -5,7 +5,7 @@ import { Main } from "@/components/main"
 export function MainPage() {
   return (
     <>
-      <div className="backdrop-blur-sm bg-white/5 ...">
+      <div>
         <Navigation/>
         <Main/>
       </div>
